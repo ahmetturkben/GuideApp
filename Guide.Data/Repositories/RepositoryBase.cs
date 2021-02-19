@@ -1,4 +1,5 @@
 ﻿using Guide.Data.Entities;
+using Guide.Data.Infrastructure;
 using Guide.Data.Interfaces;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
@@ -40,10 +41,10 @@ namespace Guide.Data.Repositories
         #endregion
 
         #region Ctor
-        public RepositoryBase()
+        public RepositoryBase(IDataProvider dataProvider)
         {
-            var client = new MongoClient("");
-            var databaseName = new MongoUrl("").DatabaseName;
+            var client = new MongoClient(dataProvider.ConnectionString);
+            var databaseName = new MongoUrl(dataProvider.ConnectionString).DatabaseName;
             var database = client.GetDatabase(databaseName);
             _collection = database.GetCollection<T>(typeof(T).Name);
         }
