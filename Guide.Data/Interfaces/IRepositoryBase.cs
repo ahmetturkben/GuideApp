@@ -16,7 +16,7 @@ namespace Guide.Data.Interfaces
 
         TEntity GetSingle(Expression<Func<TEntity, bool>> predicate);
         TEntity GetById(string Id);
-        void Add(TEntity entity);
+        TEntity Add(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
         void Delete(string Id);

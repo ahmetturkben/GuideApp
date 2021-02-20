@@ -8,6 +8,7 @@ namespace Guide.Service.Infrastructure
         {
             CreateMap<Data.Entities.Person, BL.Person>().ReverseMap();
             CreateMap<Data.Entities.Contact, BL.Contact>().ReverseMap();
+            CreateMap<Data.Entities.Report, BL.Report>().ReverseMap();
         }
     }
 }

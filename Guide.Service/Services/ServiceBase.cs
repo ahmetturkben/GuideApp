@@ -45,11 +45,12 @@ namespace Guide.Service.Services
         }
 
         // Start: Create Methods
-        public void Add(BLEntity entity)
+        public BLEntity Add(BLEntity entity)
         {
             SetCreatedDetail(entity);
-            _repo.Add(_mapper.Map<TEntity>(entity));
+            return _mapper.Map<BLEntity>(_repo.Add(_mapper.Map<TEntity>(entity)));
         }
+
         public void Update(BLEntity entity)
         {
             TEntity ent = _mapper.Map<TEntity>(entity);

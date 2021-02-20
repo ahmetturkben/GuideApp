@@ -50,9 +50,10 @@ namespace Guide.Data.Repositories
         }
         #endregion
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
             _collection.InsertOne(entity);
+            return entity;
         }
 
         public T GetById(string Id)

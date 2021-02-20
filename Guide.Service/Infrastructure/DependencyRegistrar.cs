@@ -15,12 +15,15 @@ namespace Guide.Service.Infrastructure
         {
             service.AddScoped<IPersonService, PersonService>();
             service.AddScoped<IContactService, ContactService>();
+            service.AddScoped<IReportService, ReportService>();
 
             service.AddScoped<IPersonRepository, PersonRepository>();
             service.AddScoped<IContactRepository, ContactRepository>();
+            service.AddScoped<IReportRepository, ReportRepository>();
 
-            service.AddScoped<IDataProvider, MongoDBDataProvider>();
+            service.AddSingleton<IDataProvider, MongoDBDataProvider>();
             service.AddScoped<ICodeFirstInstallation, CodeFirstInstallation>();
+
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
