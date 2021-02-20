@@ -1,4 +1,5 @@
 ﻿
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
@@ -12,13 +13,10 @@ namespace Guide.Data.Entities
         public string LastName { get; set; }
         [BsonElement("Company")]
         public string Company { get; set; }
-        private ICollection<Contact> _contact { get; set; }
-
-        public virtual ICollection<Contact> Contact
-        {
-            get { return _contact ??= new List<Contact>(); }
-            protected set { _contact = value; }
-        }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public List<string> Contact { get; set; }
+        [BsonIgnore]
+        public List<Contact> ContactList { get; set; }
 
     }
 }

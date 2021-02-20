@@ -37,9 +37,11 @@ namespace Guide.Service.Services
             return _mapper.Map<List<BLEntity>>(_repo.Table.ToList());
         }
 
-        public List<BLEntity> GetAll(Expression<Func<TEntity, bool>> predicate)
+        public List<BLEntity> GetAll(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return _mapper.Map<List<BLEntity>>(_repo.Table.Where(predicate).ToList());
+            if (predicate != null)
+                return _mapper.Map<List<BLEntity>>(_repo.Table.Where(predicate).ToList());
+            return _mapper.Map<List<BLEntity>>(_repo.Table.ToList());
         }
 
         // Start: Create Methods

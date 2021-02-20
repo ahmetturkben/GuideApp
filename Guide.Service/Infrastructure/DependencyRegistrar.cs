@@ -1,4 +1,6 @@
-﻿using Guide.Data.Interfaces;
+﻿using AutoMapper;
+using Guide.Data.Infrastructure;
+using Guide.Data.Interfaces;
 using Guide.Data.Repositories;
 using Guide.Service.Interfaces;
 using Guide.Service.Services;
@@ -16,6 +18,16 @@ namespace Guide.Service.Infrastructure
 
             service.AddScoped<IPersonRepository, PersonRepository>();
             service.AddScoped<IContactRepository, ContactRepository>();
+
+            service.AddScoped<IDataProvider, MongoDBDataProvider>();
+            service.AddScoped<ICodeFirstInstallation, CodeFirstInstallation>();
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            service.AddSingleton(mapper);
         }
     }
 }

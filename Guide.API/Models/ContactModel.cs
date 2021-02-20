@@ -1,8 +1,11 @@
-﻿using Guide.BL.Base;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Guide.BL
+namespace Guide.API.Models
 {
-    public class Contact : BaseBLModel
+    public class ContactModel
     {
         public int ContactType { get; set; }
         public string ContactContent { get; set; }

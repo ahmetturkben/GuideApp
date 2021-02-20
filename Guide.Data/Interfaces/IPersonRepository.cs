@@ -7,6 +7,6 @@ namespace Guide.Data.Interfaces
 {
     public interface IPersonRepository : IRepositoryBase<Person>
     {
-
+        Person GetByIdPersonIncludeContact(string id);
     }
 }

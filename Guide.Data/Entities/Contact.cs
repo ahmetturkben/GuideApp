@@ -8,6 +8,6 @@ namespace Guide.Data.Entities
         public int ContactType { get; set; }
         [BsonElement("ContactContent")]
         public string ContactContent { get; set; }
-        public int PersonId { get; set; }
+        public string PersonId { get; set; }
     }
 }

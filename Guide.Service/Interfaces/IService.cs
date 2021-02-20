@@ -8,7 +8,7 @@ namespace Guide.Service.Interfaces
     {
         BLEntity GetSingle(Expression<Func<TEntity, bool>> predicate);
         BLEntity GetById(string Id);
-        List<BLEntity> GetAll(Expression<Func<TEntity, bool>> predicate);
+        List<BLEntity> GetAll(Expression<Func<TEntity, bool>> predicate = null);
         void Add(BLEntity entity);
         void Update(BLEntity entity);
         void Remove(BLEntity entity);
