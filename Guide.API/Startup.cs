@@ -21,6 +21,7 @@ namespace Guide.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddServiceRegistrar();
+            services.AddHttpClient();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

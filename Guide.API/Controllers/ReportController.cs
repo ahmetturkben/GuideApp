@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Guide.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
 
 namespace Guide.API.Controllers
 {
@@ -10,11 +8,18 @@ namespace Guide.API.Controllers
     [Route("[controller]")]
     public class ReportController : Controller
     {
+        private readonly IReportService _reportService;
+        public ReportController(IReportService reportService)
+        {
+            _reportService = reportService;
+        }
+
         [HttpPost]
         public IActionResult Post()
         {
-
-            return View();
+            bool result = _reportService.SendReportRequest();
+            if (result) return Ok();
+            return BadRequest();
         }
     }
 }
