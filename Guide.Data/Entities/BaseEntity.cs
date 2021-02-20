@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using System;
 
 namespace Guide.Data.Entities
 {
@@ -22,5 +23,6 @@ namespace Guide.Data.Entities
         }
 
         private string _id;
+        public DateTime CreatedDate { get; set; }
     }
 }
