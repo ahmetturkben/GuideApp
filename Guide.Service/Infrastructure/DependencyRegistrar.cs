@@ -24,7 +24,7 @@ namespace Guide.Service.Infrastructure
             service.AddSingleton<IDataProvider, MongoDBDataProvider>();
             service.AddScoped<ICodeFirstInstallation, CodeFirstInstallation>();
 
-
+            service.AddScoped<IUserService, UserService>();
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());

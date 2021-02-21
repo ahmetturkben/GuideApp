@@ -1,4 +1,5 @@
 ﻿using Guide.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace Guide.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PersonController : Controller
     {
         private readonly IPersonService _personSerice;

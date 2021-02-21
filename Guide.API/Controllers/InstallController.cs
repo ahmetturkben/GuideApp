@@ -1,5 +1,6 @@
 ﻿using Guide.Data.Infrastructure;
 using Guide.Service.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Guide.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class InstallController : Controller
     {
         public ICodeFirstInstallation _codeFirstInstallation { get; set; }
