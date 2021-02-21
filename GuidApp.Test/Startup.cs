@@ -19,6 +19,10 @@ namespace GuidApp.Test
             services.AddSingleton<IContactService, ContactService>();
             services.AddSingleton<IContactRepository, ContactRepository>();
             services.AddSingleton<IDataProvider, MongoDBDataProvider>();
+            services.AddSingleton<ICodeFirstInstallation, CodeFirstInstallation>();
+            services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+
 
             var mapperConfig = new MapperConfiguration(mc =>
             {

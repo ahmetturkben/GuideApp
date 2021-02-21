@@ -1,15 +1,13 @@
 using Guide.Service.Interfaces;
-using Guide.Service.Services;
-using System;
 using Xunit;
 
 namespace GuidApp.Test
 {
 
-    public class UnitTest1
+    public class ContactServiceTest
     {
         private readonly IContactService _contactService;
-        public UnitTest1(IContactService contactService)
+        public ContactServiceTest(IContactService contactService)
         {
             _contactService = contactService;
         }
@@ -18,6 +16,7 @@ namespace GuidApp.Test
         public void Test1()
         {
             var result = _contactService.GetAll();
+            var contact = _contactService.GetById("test");
 
         }
     }
