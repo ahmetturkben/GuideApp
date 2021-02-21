@@ -16,10 +16,10 @@ namespace Guide.API.Controllers
             _reportService = reportService;
         }
 
-        [HttpPost]
-        public IActionResult Post()
+        [HttpPost("{personId}")]
+        public IActionResult Post(string personId)
         {
-            bool result = _reportService.SendReportRequest();
+            bool result = _reportService.SendReportRequest(personId);
             if (result) return Ok();
             return BadRequest();
         }

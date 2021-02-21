@@ -8,5 +8,6 @@ namespace Guide.BL
     {
         public DateTime RequestDate { get; set; }
         public string ReportStatus { get; set; }
+        public string Location { get; set; }
     }
 }

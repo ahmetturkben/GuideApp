@@ -19,10 +19,25 @@ namespace Guide.API.Controllers
             _reportService = reportService;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("{personId}")]
+        public IActionResult Get(string personId)
         {
-            return Ok(_reportService.GetAllCompleted());
+            var reports = _reportService.GetAllCompleted();
+
+            List<Models.ReportCompleted> models = new List<Models.ReportCompleted>();
+            foreach (var item in reports)
+            {
+                models.Add(new Models.ReportCompleted
+                {
+                    Id = item.Id,
+                    ReportStatus = item.ReportStatus,
+                    RequestDate = item.RequestDate,
+                    LocationGuidRegisterPersonCount = _reportService.GetAllLocationRegisterPersonCount(item.Location, personId),
+                    LocationGuidRegisterPhoneCount = _reportService.GetAllLocationRegisterPhoneCount(item.Location, personId)
+                });
+            }
+
+            return Ok();
         }
 
         [HttpPut("{id}")]
