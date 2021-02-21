@@ -1,0 +1,4 @@
+-Authenticate olunarak tüm endpointler verilecek token ile kullanılabilir.
+-Database MongoDB tarafındna free verilen bir databasedir. Local bir işleme gerek yok.
+-Kafka tarafı API ve Console application olarak iki türlü hazırlanmıştır.
+-Projede /Install endpointi mongoDB database i için gerekli collection oluşturulmasını tetikler.
